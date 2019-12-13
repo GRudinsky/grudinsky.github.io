@@ -17,8 +17,7 @@
   align-items: flex-end;
 }
 
-/* COMMON STYLES */
-
+/* COLOUR STYLES */
 
 .white-background {
   background-color: #F7F7F2;
@@ -30,17 +29,33 @@
   background-color: #0C090D;
 }
 
-.white-text {
+.text-white {
 color: #F7F7F2;
 }
 
+.text-red {
+color: #9E1238;
+}
 
-/* NAVBAR STYLES */
+/* FONT STYLES */
+.font-roboto {
+font-family: 'Roboto Mono', monospace;
+}
 
-/* TOP STYLES */
+/* SECTION STYLES */
+
+section {
+  min-height: 100vh;
+}
+.section-title {
+  font-size: 5vmin;
+}
+
+/* NAVBAR SECTION */
+
+/* TOP SECTION */
  
 #top {
-  height: 100vh;
   width: 100vw;
   justify-content: center;
   align-items: center;
@@ -49,7 +64,7 @@ color: #F7F7F2;
   margin-right: 15vmin;
 }
 
-.top-title, .top-title-small {
+.top-title, .top-title-small, .section-title {
   display: table;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -61,3 +76,28 @@ color: #F7F7F2;
   font-size: 8vmin;
   margin: 2.5vmin 2.5vmin 0 0;
 }
+
+/* ABOUT SECTION */
+#about {
+  display: flex;
+}
+.content {
+  width: 90vh;
+  min-height: 80vh;
+  top: auto;
+  bottom: 0px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.devicons-container > i {
+  display: box;
+  font-size: 10vmin;
+  margin: 1vmin;
+}
+
+
+
