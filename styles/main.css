@@ -1,0 +1,63 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* FLEXBOX STYLES */
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-row {
+  display: flex;
+}
+.flex-end {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/* COMMON STYLES */
+
+
+.white-background {
+  background-color: #F7F7F2;
+}
+.red-background {
+  background-color: #9E1238;
+}
+.black-background {
+  background-color: #0C090D;
+}
+
+.white-text {
+color: #F7F7F2;
+}
+
+
+/* NAVBAR STYLES */
+
+/* TOP STYLES */
+ 
+#top {
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+.title-wrapper :nth-child(3) {
+  margin-right: 15vmin;
+}
+
+.top-title, .top-title-small {
+  display: table;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin-bottom: 2.5vmin;
+  font-size: 10vmin;
+  padding: 0 1vmin 0 1vmin;
+}
+.top-title-small {
+  font-size: 8vmin;
+  margin: 2.5vmin 2.5vmin 0 0;
+}
