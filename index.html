@@ -10,10 +10,10 @@
   <link rel="stylesheet" href="styles/main.css">
   <script src="scripts/app.js"></script>
 </head>
-<body>
+<body class="black-background">
   <header>
   </header>
-  <section id="top" class="flex-column black-background">
+  <section id="top" class=" section-wrapper flex-column">
     <div class="title-wrapper flex-column flex-end">
       <div class="flex-row">
         <div class="top-title-small red-background">WEB DEV</div>
@@ -26,7 +26,7 @@
 
   <!-- ABOUT SECTION -->
 
-  <section id="about" class="black-background">
+  <section id="about" class="section-wrapper">
     <div class="section-title red-background">ABOUT.</div>
     <main class="content font-roboto text-white">
       <div class="text-area">
@@ -37,8 +37,8 @@
             check my project section below.</p>
         </p>
       </div>
+      <!-- This could be mapped from app.js -->
       <div class="devicons-container text-red">
-        <!-- TODO - append all icons from app.js -->
         <i class="devicon-apple-original"></i>
         <i class="devicon-atom-original"></i>
         <i class="devicon-babel-plain"></i>
@@ -68,13 +68,18 @@
 
   <!-- PROJECTS SECTION -->
 
-  <section id="works" class="black-background">
+  <section id="works" class="section-wrapper">
     <div class="section-title red-background">WORKS.</div>
+    <div id="projects-wrapper" class="grid-container">
+
+      <!-- Content get appended here from app.js -->
+
+    </div>
   </section>
 
     <!-- CONTACTS SECTION -->
 
-  <section id="contact" class="black-background">
+  <section id="contact" class="section-wrapper">
     <div class="section-title red-background">CONTACT.</div>
 
   </section>
