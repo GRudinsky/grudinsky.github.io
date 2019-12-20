@@ -60,10 +60,10 @@ function appendProjects() {
     element.classList.add('project-card')
     grid.appendChild(element)
 
-    const title = document.createElement('div')
-    title.innerHTML = project.name
-    title.classList.add('project-title', 'red-background')
-    grid.appendChild(title)
+    // const title = document.createElement('div')
+    // title.innerHTML = project.name
+    // title.classList.add('project-title', 'red-background')
+    // grid.appendChild(title)
 
     const content = document.createElement('div')
     content.classList.add('project-content', 'text-white', 'hidden')
@@ -99,7 +99,7 @@ function appendProjects() {
 }
 
 function toggleHidden(e){
-  e.target.classList.contains('hidden') ? e.target.classList.remove('hidden') : e.target.classList.add('hidden')
+  e.target.classList.toggle('hidden')
 }
 
 document.addEventListener('DOMContentLoaded', () => {
