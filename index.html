@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada:700|Montserrat:700|Roboto+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
+  <script src="https://kit.fontawesome.com/9b413e5fa8.js" crossorigin="anonymous"></script>
   <script src="scripts/app.js"></script>
 </head>
 <body class="black-background">
@@ -20,21 +21,22 @@
         <div class="top-title white-background">GIEDRIUS</div>
       </div>
     <div class="top-title white-background"> RUDZIANSKAS</div>
-    <div class="project-title red-background">Good <span id="time-of-day"></span>! Thank you for dropping by<span id="text-cursor">|</span></div>
-    <!-- <div class="top-title red-background">COMING SOON<span id="text-cursor">|</span></div> -->
+      <!-- <div class="project-title red-background">Good <span id="time-of-day"></span>! Thank you for dropping by<span id="text-cursor">|</span></div>
+      <div class="top-title red-background">COMING SOON<span id="text-cursor">|</span></div> -->
     </div>
+    <a id="top-arrow" class="scroll-arrow text-white" href="#about">▽</a>
   </section>
 
   <!-- ABOUT SECTION -->
 
   <section id="about" class="section-wrapper">
     <div class="section-title red-background">ABOUT.</div>
-    <main class="content font-roboto text-white">
-      <div class="text-area">
-          <p>
-            I'm a full stack developer with experience in working with following technologies. Also don't forget to
-            check my project section below.
-          </p>
+      <p class="about-bio text-white font-roboto">
+        Good <span id="time-of-day"></span>! Thank you for dropping by. I'm a full stack developer with experience in working with following technologies. Check out my projects section below<span id="text-cursor">|</span>
+      </p>
+    <main class="about-content font-roboto text-white">
+      <div id="profile-wrapper" class="profile-wrapper">
+        <!-- Content gets appended here from app.js -->
       </div>
       <div id="devicons-wrapper" class="devicons-container text-red">
       </div>
@@ -45,23 +47,21 @@
 
   <section id="works" class="section-wrapper">
     <div class="section-title red-background">PROJECTS.</div>
-    <!-- <div id="projects-wrapper" class="grid-container"> -->
       <div id="projects-wrapper">
-
-      <!-- Content get appended here from app.js -->
-
+      <!-- Content gets appended here from app.js -->
     </div>
   </section>
 
     <!-- CONTACTS SECTION -->
 
-  <section id="contact" class="section-wrapper">
+  <section id="contact" class="section-wrapper contact-section">
     <div class="section-title red-background">CONTACT.</div>
-
+    <div id="contacts-wrapper" class="contacts-container">
+  <!-- Content gets appended here from app.js -->
+    </div>
   </section>
-  <footer>
-
+  <footer class="red-background font-roboto">
+  <p>&copy grudinsky 2019</p>
   </footer>
-  
 </body>
 </html>

@@ -62,11 +62,6 @@ const devIcons = [
     name: 'Node.js',
     class: 'devicon-nodejs-plain'
   },
-  // {
-  //   alt: 'Npm',
-  //   d: ``,
-  //   url: 'https://www.npmjs.com/'
-  // },
   {
     name: 'PostgreSQL',
     class: 'devicon-postgresql-plain'
@@ -77,7 +72,7 @@ const devIcons = [
   },
   {
     name: 'React',
-    class: 'devicon-react-original-wordmark'
+    class: 'devicon-react-original'
   },
   {
     name: 'Sass',
@@ -91,17 +86,14 @@ const devIcons = [
     name: 'VSCode',
     class: 'devicon-visualstudio-plain'
   },
-  // {
-  //   alt: 'Yarn',
-  //   d: ``,
-  //   url: 'https://yarnpkg.com/lang/en/'
-  // },
   {
     name: 'Slack',
     class: 'devicon-slack-plain'
   }
 ]
 
+// PROFILE IMAGES
+const profileImages = ['assets/images/BGA_1427.jpg', 'assets/images/BGA_1428.jpg', 'assets/images/BGA_1429.jpg', 'assets/images/BGA_1430.jpg', 'assets/images/BGA_1431.jpg', 'assets/images/BGA_1432.jpg', 'assets/images/BGA_1433.jpg', 'assets/images/BGA_1434.jpg']
 
 // PROJECTS DATA
 
@@ -140,9 +132,25 @@ const projectsContent = [
   }
 ]
 
+// CONTACTS DATA
 
-
-
+const contactsContent = [
+  {
+    name: 'linkedIn',
+    href: 'https://www.linkedin.com/in/giedrius-rudzianskas/',
+    class: 'fab fa-linkedin'
+  },
+  {
+    name: 'email',
+    href: 'mailto:g.rudzianskas@gmail.com',
+    class: 'fas fa-envelope-square'
+  },
+  {
+    name: 'github',
+    href: 'https://github.com/grudinsky',
+    class: 'fab fa-github-square'
+  }
+]
 
 // LANDING PAGE
 
@@ -164,17 +172,40 @@ function getDayTime(idName, content) {
 }
 // ABOUT SECTION
 
+function displayProfileImage() {
+  const container = document.getElementById('profile-wrapper')
+  const headshot = document.createElement('div')
+  headshot.addEventListener('mouseenter', changeImages)
+  headshot.classList.add('headshot')
+  container.appendChild(headshot)
+}
+function changeImages() {
+  const f = document.querySelector('.headshot')
+  profileImages.forEach((image, i) => {
+    setTimeout(() => {
+      f.style.backgroundImage = `url(${image})`
+    }, i * 100)
+  })
+}
+
 function displayIcons() {
   const iconsContainer = document.getElementById('devicons-wrapper')
   devIcons.forEach(icon => {
-    const element = document.createElement('div')
-    element.classList.add(icon.class)
-    iconsContainer.appendChild(element)
+    const iconContainer = document.createElement('div')
+    iconContainer.addEventListener('mouseenter', toggleHiddenChild)
+    iconContainer.addEventListener('mouseleave', toggleHiddenChild)
+    iconsContainer.appendChild(iconContainer)
+    const devIcon = document.createElement('div')
+    devIcon.classList.add(icon.class, 'icon')
+    iconContainer.appendChild(devIcon)
+    const name = document.createElement('div')
+    name.classList.add('icon-name', 'hidden')
+    name.innerHTML = icon.name
+    iconContainer.appendChild(name)
   })
 }
 
 // PROJECTS SECTION
-
 
 function displayProjects() {
   const grid = document.getElementById('projects-wrapper')
@@ -191,9 +222,7 @@ function displayProjects() {
     // grid.appendChild(title)
 
     const content = document.createElement('div')
-    content.classList.add('project-content', 'text-white', 'hidden')
-    content.addEventListener('mouseenter', toggleHidden)
-    content.addEventListener('mouseleave', toggleHidden)
+    content.classList.add('project-content', 'text-white')
     element.appendChild(content)
 
     const description = document.createElement('p')
@@ -213,7 +242,6 @@ function displayProjects() {
     links.appendChild(githubLink)
 
     const liveLink = document.createElement('A')
-    // console.log(project.urlLive.slice(18, 24))
     liveLink.classList.add('live-link', (project.urlLive.slice(18, 24) === 'github' ? 'devicon-github-plain' : 'devicon-heroku-original'))
     liveLink.href = project.urlLive
     liveLink.target = '_blank'
@@ -224,21 +252,35 @@ function displayProjects() {
     tools.classList.add('project-description')
     content.appendChild(tools)
     tools.textContent = project.tools
-
   }
   )
 }
 
-function toggleHidden(e){
-  e.target.classList.toggle('hidden')
+function toggleHiddenChild(e){
+  e.target.lastChild.classList.toggle('hidden')
+}
+// CONTACTS SECTION
+
+function displayContacts() {
+  const container = document.getElementById('contacts-wrapper')
+  contactsContent.forEach(contact => { 
+    const element = document.createElement('a')
+    element.classList.add(contact.class.slice(0, 3), contact.class.slice(4), 'contact-link')
+    element.href = contact.href
+    element.target = '_blank'
+    element.rel = 'noreferrer'
+    container.appendChild(element)
+  })
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-
+  makeTextBlink('top-arrow')
   makeTextBlink('text-cursor')
   getDayTime('time-of-day', 'dayTime')
   // getDayTime('time-of-week', 'weekDay')
+  displayProfileImage()
   displayIcons()
   displayProjects()
+  displayContacts()
 })
 
