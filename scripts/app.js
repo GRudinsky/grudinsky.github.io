@@ -1,24 +1,109 @@
+// DATA SECTION
 
-// LANDING PAGE
+// SKILLS DATA
+const devIcons = [
+  {
+    name: 'Apple',
+    class: 'devicon-apple-original'
+  },
+  {
+    name: 'Atom',
+    class: 'devicon-atom-original'
+  },
+  {
+    name: 'Babel',
+    class: 'devicon-babel-plain'
+  },
+  {
+    name: 'Chrome',
+    class: 'devicon-chrome-plain'
+  },
+  {
+    name: 'CSS3',
+    class: 'devicon-css3-plain'
+  },
+  {
+    name: 'Django',
+    class: 'devicon-django-plain'
+  },
+  {
+    name: 'Express',
+    class: 'devicon-express-original'
+  },
+  {
+    name: 'Git',
+    class: 'devicon-git-plain'
+  },
+  {
+    name: 'GitHub',
+    class: 'devicon-github-plain'
+  },
+  {
+    name: 'Heroku',
+    class: 'devicon-heroku-original'
+  },
+  {
+    name: 'HTML5',
+    class: 'devicon-html5-plain'
+  },
+  {
+    name: 'JavaScript',
+    class: 'devicon-javascript-plain'
+  },
+  {
+    name: 'Mocha',
+    class: 'devicon-mocha-plain'
+  },
+  {
+    name: 'MongoDB',
+    class: 'devicon-mongodb-plain'
+  },
+  {
+    name: 'Node.js',
+    class: 'devicon-nodejs-plain'
+  },
+  // {
+  //   alt: 'Npm',
+  //   d: ``,
+  //   url: 'https://www.npmjs.com/'
+  // },
+  {
+    name: 'PostgreSQL',
+    class: 'devicon-postgresql-plain'
+  },
+  {
+    name: 'Python',
+    class: 'devicon-python-plain'
+  },
+  {
+    name: 'React',
+    class: 'devicon-react-original-wordmark'
+  },
+  {
+    name: 'Sass',
+    class: 'devicon-sass-original'
+  },
+  {
+    name: 'Webpack',
+    class: 'devicon-webpack-plain'
+  },
+  {
+    name: 'VSCode',
+    class: 'devicon-visualstudio-plain'
+  },
+  // {
+  //   alt: 'Yarn',
+  //   d: ``,
+  //   url: 'https://yarnpkg.com/lang/en/'
+  // },
+  {
+    name: 'Slack',
+    class: 'devicon-slack-plain'
+  }
+]
 
-function makeTextBlink(arg) {
-  const f = document.getElementById(arg)
-  setInterval(() => {
-    f.style.visibility = (f.style.visibility === 'hidden' ? 'visible' : 'hidden')
-  }, 500)
-}
 
-function getDayTime(idName, content) {
-  const f = document.getElementById(idName)
-  const t = new Date()
-  const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-  const dayHours = t.getHours()
-  const dayTime = dayHours < 12 ? 'morning' : (dayHours > 12 && dayHours < 17 ? 'afternoon' : 'evening')
-  f.innerHTML = content === 'weekDay' ? weekDays[t.getDay()] : (content === 'dayTime' ? dayTime : 'day')
-  return f.innerHTML
-}
-
-// PROJECTS SECTION
+// PROJECTS DATA
 
 const projectsContent = [
   {
@@ -55,7 +140,43 @@ const projectsContent = [
   }
 ]
 
-function appendProjects() {
+
+
+
+
+// LANDING PAGE
+
+function makeTextBlink(arg) {
+  const f = document.getElementById(arg)
+  setInterval(() => {
+    f.style.visibility = (f.style.visibility === 'hidden' ? 'visible' : 'hidden')
+  }, 500)
+}
+
+function getDayTime(idName, content) {
+  const f = document.getElementById(idName)
+  const t = new Date()
+  const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  const dayHours = t.getHours()
+  const dayTime = dayHours < 12 ? 'morning' : (dayHours > 12 && dayHours < 17 ? 'afternoon' : 'evening')
+  f.innerHTML = content === 'weekDay' ? weekDays[t.getDay()] : (content === 'dayTime' ? dayTime : 'day')
+  return f.innerHTML
+}
+// ABOUT SECTION
+
+function displayIcons() {
+  const iconsContainer = document.getElementById('devicons-wrapper')
+  devIcons.forEach(icon => {
+    const element = document.createElement('div')
+    element.classList.add(icon.class)
+    iconsContainer.appendChild(element)
+  })
+}
+
+// PROJECTS SECTION
+
+
+function displayProjects() {
   const grid = document.getElementById('projects-wrapper')
   projectsContent.forEach(project => {
 
@@ -117,6 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
   makeTextBlink('text-cursor')
   getDayTime('time-of-day', 'dayTime')
   // getDayTime('time-of-week', 'weekDay')
-  appendProjects()
+  displayIcons()
+  displayProjects()
 })
 

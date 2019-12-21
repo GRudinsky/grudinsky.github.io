@@ -102,11 +102,19 @@ font-family: 'Roboto Mono', monospace;
   align-items: center;
   margin: 0;
 }
-.devicons-container > i {
+.devicons-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.devicons-container > div {
   display: box;
   font-size: 10vmin;
-  margin: 1vmin;
+  margin: 2vmin;
 }
+.devicons-container > div:hover {
+  font-size: 8vmin;
+}
+
 
 /* WORKS SECTION */
 
