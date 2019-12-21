@@ -3,6 +3,9 @@
   margin: 0;
   padding: 0;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 /* FLEXBOX STYLES */
 .flex-column {
@@ -16,32 +19,58 @@
   justify-content: flex-end;
   align-items: flex-end;
 }
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 5vmin;
+}
 
-/* COMMON STYLES */
-
+/* COLOUR STYLES */
 
 .white-background {
   background-color: #F7F7F2;
 }
 .red-background {
+    /* background-color: #F7F7F2; */
   background-color: #9E1238;
 }
 .black-background {
   background-color: #0C090D;
 }
 
-.white-text {
+.text-white {
 color: #F7F7F2;
 }
 
+.text-red {
+color: #9E1238;
+}
 
-/* NAVBAR STYLES */
+/* FONT STYLES */
+.font-roboto {
+font-family: 'Roboto Mono', monospace;
+}
 
-/* TOP STYLES */
+/* SECTION STYLES */
+
+.section-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 95vw;
+  margin: 0 auto;
+}
+.section-title {
+  font-size: 5vmin;
+  display: inline;
+}
+
+/* NAVBAR SECTION */
+
+/* TOP SECTION */
  
 #top {
-  height: 100vh;
-  width: 100vw;
+  width: 100%;
   justify-content: center;
   align-items: center;
 }
@@ -49,7 +78,7 @@ color: #F7F7F2;
   margin-right: 15vmin;
 }
 
-.top-title, .top-title-small {
+.top-title, .top-title-small, .section-title, .project-title {
   display: table;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -61,3 +90,156 @@ color: #F7F7F2;
   font-size: 8vmin;
   margin: 2.5vmin 2.5vmin 0 0;
 }
+.scroll-arrow {
+  position: absolute;
+  top: 90vh;
+  font-size: 5vmin;
+  text-decoration: none;
+}
+
+/* ABOUT SECTION */
+#about {
+  display: flex;
+}
+.about-wrapper {
+  width: 90vh;
+  min-height: 80vh;
+  top: auto;
+  bottom: 0px;
+  height: auto;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  /* margin: 0; */
+}
+.about-bio {
+  margin-bottom: 2.5vmin;
+}
+.about-content {
+  display: flex;
+  align-items: center;
+}
+.about-content > div {
+  width: 50%;
+}
+.profile-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.headshot {
+  width: 80%;
+  height: 70vh;
+  background-attachment: fixed;
+  background-position: 5vw 17vh;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('../assets/images/BGA_1430.jpg');
+  opacity: 0.8;
+}
+
+.devicons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.devicons-container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1vmin;
+  width: 10vh;
+  height: 10vh;
+}
+.devicons-container > div:hover {
+  font-size: 8vmin;
+}
+.icon {
+font-size: 10vmin;
+}
+.icon:hover {
+  font-size: 8vmin;
+}
+.icon-name {
+  font-size: 2vmin;
+}
+
+
+/* PROJECTS SECTION */
+
+.project-card {
+  /* width: 45vw;
+  height: 40vh; */
+  width: 100%;
+  height: 80vh;
+  background-attachment:fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: transform .5s;
+}
+.project-card:hover {
+  background-size: 150%;
+  /* transform: scale(1.5); */
+}
+.project-title {
+  font-size: 5vmin;
+}
+.project-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0C090D;
+  font-family: 'Roboto Mono', monospace;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+.project-description {
+  margin: 3vmin;
+}
+.live-link, .github-link, .contact-link {
+  font-size: 20vmin;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  margin: 1vmin;
+}
+.live-link:hover,
+.github-link:hover,
+.contact-link:hover {
+  color: #9E1238;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+/* CONTACTS SECTION */
+
+.contact-section {
+  min-height: 90vh;
+}
+
+.contacts-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh; 
+}
+.contact-link {
+font-size: 15vmin;
+}
+ /* FOOTER STYLES */
+ footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 10vh;
+ }
+ footer > p {
+   margin-right: 2.5vw;
+ }
