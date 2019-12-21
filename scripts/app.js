@@ -24,7 +24,8 @@ const projectsContent = [
   {
     name: 'Find That Flight',
     imagePath: 'assets/images/project4.png',
-    description: 'Flight ticket search app, built as final project at General Assembly.',
+    description: 'Flight ticket search app, built as final solo project at General Assembly.',
+    tools: 'HTML | SCSS | JavaScript | React | Python | Django | PostgreSQL | MapBoxGL | External API\'s',
     urlLive: 'https://findthatflight.herokuapp.com/',
     urlGithub: 'https://github.com/GRudinsky/SEI-project-04'
   },
@@ -32,6 +33,7 @@ const projectsContent = [
     name: 'Rekordr',
     imagePath: 'assets/images/project3.png',
     description: 'Music collection organizing page, built as group project at General Assembly.',
+    tools: 'HTML | SCSS | JavaScript | React | Node.js | MongoDB | Deezer API',
     urlLive: 'https://rekordr.herokuapp.com/',
     urlGithub: 'https://github.com/GRudinsky/SEI-group-project'
   },
@@ -39,6 +41,7 @@ const projectsContent = [
     name: 'News On The Mews',
     imagePath: 'assets/images/project2.png',
     description: 'News aggregating website, built as pair-programming project at General Assembly.',
+    tools: 'HTML | SCSS | JavaScript | React | NewsAPI',
     urlLive: 'https://newsonthemews.herokuapp.com/',
     urlGithub: 'https://github.com/GRudinsky/sei-project-2'
   },
@@ -46,6 +49,7 @@ const projectsContent = [
     name: 'Pacman Game',
     imagePath: 'assets/images/project1.png',
     description: 'Pac-Man game, built as solo project at General Assembly.',
+    tools: 'HTML | CSS | JavaScript',
     urlLive: 'https://grudinsky.github.io/project-pacman/',
     urlGithub: 'https://github.com/GRudinsky/project-pacman'
   }
@@ -72,7 +76,6 @@ function appendProjects() {
     element.appendChild(content)
 
     const description = document.createElement('p')
-
     description.classList.add('project-description')
     content.appendChild(description)
     description.textContent = project.description
@@ -89,11 +92,18 @@ function appendProjects() {
     links.appendChild(githubLink)
 
     const liveLink = document.createElement('A')
-    liveLink.classList.add('live-link', 'devicon-heroku-original')
+    // console.log(project.urlLive.slice(18, 24))
+    liveLink.classList.add('live-link', (project.urlLive.slice(18, 24) === 'github' ? 'devicon-github-plain' : 'devicon-heroku-original'))
     liveLink.href = project.urlLive
     liveLink.target = '_blank'
     liveLink.rel = 'noreferrer'
     links.appendChild(liveLink)
+
+    const tools = document.createElement('P')
+    tools.classList.add('project-description')
+    content.appendChild(tools)
+    tools.textContent = project.tools
+
   }
   )
 }
@@ -106,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   makeTextBlink('text-cursor')
   getDayTime('time-of-day', 'dayTime')
-  getDayTime('time-of-week', 'weekDay')
+  // getDayTime('time-of-week', 'weekDay')
   appendProjects()
 })
 
