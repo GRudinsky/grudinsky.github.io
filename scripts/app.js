@@ -93,7 +93,7 @@ const devIcons = [
 ]
 
 // PROFILE IMAGES
-const profileImages = ['assets/images/BGA_1427.jpg', 'assets/images/BGA_1428.jpg', 'assets/images/BGA_1429.jpg', 'assets/images/BGA_1430.jpg', 'assets/images/BGA_1431.jpg', 'assets/images/BGA_1432.jpg', 'assets/images/BGA_1433.jpg', 'assets/images/BGA_1434.jpg']
+let profileImages = ['assets/images/BGA_1434.jpg', 'assets/images/BGA_1433.jpg', 'assets/images/BGA_1432.jpg', 'assets/images/BGA_1431.jpg', 'assets/images/BGA_1430.jpg', 'assets/images/BGA_1429.jpg', 'assets/images/BGA_1428.jpg', 'assets/images/BGA_1427.jpg']
 
 // PROJECTS DATA
 
@@ -179,8 +179,10 @@ function displayProfileImage() {
   headshot.classList.add('headshot')
   container.appendChild(headshot)
 }
+
 function changeImages() {
   const f = document.querySelector('.headshot')
+  profileImages = profileImages.reverse()
   profileImages.forEach((image, i) => {
     setTimeout(() => {
       f.style.backgroundImage = `url(${image})`
@@ -274,7 +276,6 @@ function displayContacts() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  makeTextBlink('top-arrow')
   makeTextBlink('text-cursor')
   getDayTime('time-of-day', 'dayTime')
   // getDayTime('time-of-week', 'weekDay')
