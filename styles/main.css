@@ -27,17 +27,13 @@ html {
 
 /* COLOUR STYLES */
 
-.white-background {
+.background-white {
   background-color: #F7F7F2;
 }
-.colored-background {
+.background-colored {
   background-color: #92918D;
-  /* background-color: #AFADAC; */
-  /* background-color: #CECCCA; */
-  /* background-color: #F7F7F2; */
-  /* background-color: #9E1238; */
 }
-.black-background {
+.background-black {
   background-color: #0C090D;
 }
 
@@ -47,15 +43,12 @@ html {
 
 .text-colored {
   color: #AFADAC;
-  /* color: #CECCCA; */
-/* color: #9E1238; */
 }
 
 /* FONT STYLES */
-.font-roboto {
-/* font-family: 'Roboto Mono', monospace; */
-font-family: 'Montserrat', sans-serif;
-font-weight: 400;
+.font-mont {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
 }
 
 /* SECTION STYLES */
@@ -248,7 +241,7 @@ font-size: 9vmin;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #0C090D;
+  /* background-color: #0C090D; */
   /* font-family: 'Roboto Mono', monospace; */
   font-family: 'Montserrat', sans-serif;
   width: 100%;

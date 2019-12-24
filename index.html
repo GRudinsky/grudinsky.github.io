@@ -11,18 +11,16 @@
   <script src="https://kit.fontawesome.com/9b413e5fa8.js" crossorigin="anonymous"></script>
   <script src="scripts/app.js"></script>
 </head>
-<body class="black-background">
+<body class="background-black">
   <header>
   </header>
   <section id="top" class=" section-wrapper flex-column">
     <div class="title-wrapper flex-column flex-end">
       <div class="flex-row">
-        <div class="top-title-small text-white black-background">WEB DEV</div>
-        <div class="top-title white-background">GIEDRIUS</div>
+        <div class="top-title-small text-white background-black">WEB DEV</div>
+        <div id="title-name" class="top-title background-white">GIEDRIUS</div>
       </div>
-    <div class="top-title colored-background"> RUDZIANSKAS</div>
-      <!-- <div class="project-title colored-background">Good <span id="time-of-day"></span>! Thank you for dropping by<span id="text-cursor">|</span></div>
-      <div class="top-title colored-background">COMING SOON<span id="text-cursor">|</span></div> -->
+    <div class="top-title background-colored"> RUDZIANSKAS</div>
     </div>
     <a id="down-arrow" class="down-arrow text-white bounce" href="#about">▽</a>
   </section>
@@ -30,11 +28,11 @@
   <!-- ABOUT SECTION -->
 
   <section id="about" class="section-wrapper">
-    <div class="section-title text-white">ABOUT</div>
-      <p class="about-bio text-white font-roboto">
+    <div id="text-wh-0" class="section-title text-white">ABOUT</div>
+      <p id="text-wh-1" class="about-bio text-white font-mont">
         Good <span id="time-of-day"></span>! Thank you for dropping by. I'm a full stack developer with experience in working with following technologies. Check out my projects section below.
       </p>
-    <main class="about-content font-roboto text-white">
+    <main class="about-content font-mont text-white">
       <div id="profile-wrapper" class="profile-wrapper">
         <!-- Content gets appended here from app.js -->
       </div>
@@ -46,7 +44,7 @@
   <!-- PROJECTS SECTION -->
 
   <section id="works" class="section-wrapper">
-    <div class="section-title text-white">PROJECTS</div>
+    <div id="text-wh-2" class="section-title text-white">PROJECTS</div>
       <div id="projects-wrapper">
       <!-- Content gets appended here from app.js -->
     </div>
@@ -55,12 +53,12 @@
     <!-- CONTACTS SECTION -->
 
   <section id="contact" class="section-wrapper contact-section">
-    <div class="section-title text-white">CONTACT</div>
-    <div id="contacts-wrapper" class="contacts-container">
+    <div id="text-wh-3" class="section-title text-white">CONTACT</div>
+    <div id="contacts-wrapper" class="contacts-container text-white">
   <!-- Content gets appended here from app.js -->
     </div>
   </section>
-  <footer class="font-roboto text-white">
+  <footer id="footer" class="font-mont text-white">
   <p>&copy grudinsky 2019<span id="text-cursor">|</span></p>
   </footer>
 </body>

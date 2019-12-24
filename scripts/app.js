@@ -93,7 +93,10 @@ const devIcons = [
 ]
 
 // PROFILE IMAGES
-let profileImages = ['assets/images/BGA_1434.jpg', 'assets/images/BGA_1433.jpg', 'assets/images/BGA_1432.jpg', 'assets/images/BGA_1431.jpg', 'assets/images/BGA_1430.jpg', 'assets/images/BGA_1429.jpg', 'assets/images/BGA_1428.jpg', 'assets/images/BGA_1427.jpg']
+
+let profileImages = ['assets/images/BGA_1434.jpg', 'assets/images/BGA_1433.jpg', 'assets/images/BGA_1432.jpg', 'assets/images/BGA_1431.jpg', 'assets/images/BGA_1430.jpg', 'assets/images/BGA_1429.jpg']
+let backgroundColors = ['background-black', 'background-white']
+let textColors = ['text-black', 'text-white']
 
 // PROJECTS DATA
 
@@ -188,6 +191,30 @@ function changeImages() {
       f.style.backgroundImage = `url(${image})`
     }, i * 100)
   })
+  setTimeout(() => {
+    toggleDarkMode()
+  },100 * (profileImages.length - 1))
+}
+
+function toggleDarkMode() {
+  backgroundColors = backgroundColors.reverse()
+  textColors = textColors.reverse()
+  
+  const body = document.querySelector('body')
+  const t0 = document.getElementById('text-wh-0')
+  const t1 = document.getElementById('text-wh-1')
+  const t2 = document.getElementById('text-wh-2')
+  const t3 = document.getElementById('text-wh-3')
+  const t4 = document.getElementById('contacts-wrapper')
+  const t5 = document.getElementById('footer')
+  const t6 = document.getElementById('down-arrow')
+  const wtArr = [t0, t1, t2, t3, t4, t5, t6]
+
+  body.classList.add(backgroundColors[0])
+  body.classList.remove(backgroundColors[1])
+
+  wtArr.forEach(element => element.classList.add(textColors[1]))
+  wtArr.forEach(element => element.classList.remove(textColors[0]))
 }
 
 function displayIcons() {
@@ -224,7 +251,7 @@ function displayProjects() {
     // grid.appendChild(title)
 
     const content = document.createElement('div')
-    content.classList.add('project-content', 'text-white')
+    content.classList.add('project-content', 'background-black', 'text-white')
     element.appendChild(content)
 
     const description = document.createElement('p')
