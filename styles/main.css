@@ -30,15 +30,20 @@ html {
 .background-white {
   background-color: #F7F7F2;
 }
-.background-colored {
-  background-color: #92918D;
-}
+
 .background-black {
   background-color: #0C090D;
 }
 
+.background-colored {
+  background-color: #92918D;
+}
+
 .text-white {
   color: #F7F7F2;
+}
+.text-black {
+  color: #0C090D
 }
 
 .text-colored {
@@ -255,7 +260,7 @@ font-size: 9vmin;
   font-size: 15vmin;
   cursor: pointer;
   text-decoration: none;
-  color: white;
+  /* color: white; */
   margin: 1vmin;
 }
 .live-link:hover,
