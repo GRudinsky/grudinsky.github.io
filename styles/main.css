@@ -19,6 +19,10 @@ html {
   justify-content: flex-end;
   align-items: flex-end;
 }
+.centered {
+  justify-content: center;
+  align-items: center;
+}
 .grid-container {
   display: grid;
   grid-template-columns: auto auto;
@@ -27,35 +31,30 @@ html {
 
 /* COLOUR STYLES */
 
-.white-background {
+.background-white {
   background-color: #F7F7F2;
 }
-.colored-background {
-  background-color: #92918D;
-  /* background-color: #AFADAC; */
-  /* background-color: #CECCCA; */
-  /* background-color: #F7F7F2; */
-  /* background-color: #9E1238; */
-}
-.black-background {
+.background-black {
   background-color: #0C090D;
+}
+.background-colored {
+  background-color: #92918D;
 }
 
 .text-white {
   color: #F7F7F2;
 }
-
+.text-black {
+  color: #0C090D
+}
 .text-colored {
   color: #AFADAC;
-  /* color: #CECCCA; */
-/* color: #9E1238; */
 }
 
 /* FONT STYLES */
-.font-roboto {
-/* font-family: 'Roboto Mono', monospace; */
-font-family: 'Montserrat', sans-serif;
-font-weight: 400;
+.font-mont {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
 }
 
 /* SECTION STYLES */
@@ -84,7 +83,6 @@ font-weight: 400;
 .title-wrapper :nth-child(3) {
   margin-right: 15vmin;
 }
-
 .top-title, .top-title-small, .section-title, .project-title {
   display: table;
   font-family: 'Montserrat', sans-serif;
@@ -198,7 +196,6 @@ font-weight: 400;
   background-image: url('../assets/images/BGA_1430.jpg');
   opacity: 0.8;
 }
-
 .devicons-container {
   display: flex;
   flex-wrap: wrap;
@@ -248,7 +245,7 @@ font-size: 9vmin;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #0C090D;
+  /* background-color: #0C090D; */
   /* font-family: 'Roboto Mono', monospace; */
   font-family: 'Montserrat', sans-serif;
   width: 100%;
@@ -262,7 +259,7 @@ font-size: 9vmin;
   font-size: 15vmin;
   cursor: pointer;
   text-decoration: none;
-  color: white;
+  /* color: white; */
   margin: 1vmin;
 }
 .live-link:hover,
@@ -272,7 +269,6 @@ font-size: 9vmin;
   opacity: 0.4;
   transform: scale(1.1);
 }
-
 .hidden {
   opacity: 0;
 }
@@ -282,7 +278,6 @@ font-size: 9vmin;
 .contact-section {
   min-height: 90vh;
 }
-
 .contacts-container {
   display: flex;
   justify-content: center;

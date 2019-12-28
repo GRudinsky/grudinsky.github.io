@@ -3,10 +3,6 @@
 // SKILLS DATA
 const devIcons = [
   {
-    name: 'Apple',
-    class: 'devicon-apple-original'
-  },
-  {
     name: 'Atom',
     class: 'devicon-atom-original'
   },
@@ -93,7 +89,10 @@ const devIcons = [
 ]
 
 // PROFILE IMAGES
-let profileImages = ['assets/images/BGA_1434.jpg', 'assets/images/BGA_1433.jpg', 'assets/images/BGA_1432.jpg', 'assets/images/BGA_1431.jpg', 'assets/images/BGA_1430.jpg', 'assets/images/BGA_1429.jpg', 'assets/images/BGA_1428.jpg', 'assets/images/BGA_1427.jpg']
+
+let profileImages = ['assets/images/BGA_1434.jpg', 'assets/images/BGA_1433.jpg', 'assets/images/BGA_1432.jpg', 'assets/images/BGA_1431.jpg', 'assets/images/BGA_1430.jpg', 'assets/images/BGA_1429.jpg']
+let backgroundColors = ['background-black', 'background-white']
+let textColors = ['text-black', 'text-white']
 
 // PROJECTS DATA
 
@@ -166,7 +165,7 @@ function getDayTime(idName, content) {
   const t = new Date()
   const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   const dayHours = t.getHours()
-  const dayTime = dayHours < 12 ? 'morning' : (dayHours > 12 && dayHours < 17 ? 'afternoon' : 'evening')
+  const dayTime = dayHours < 12 ? 'morning' : (dayHours >= 12 && dayHours < 17 ? 'afternoon' : 'evening')
   f.innerHTML = content === 'weekDay' ? weekDays[t.getDay()] : (content === 'dayTime' ? dayTime : 'day')
   return f.innerHTML
 }
@@ -181,13 +180,38 @@ function displayProfileImage() {
 }
 
 function changeImages() {
-  const f = document.querySelector('.headshot')
+  const headshot = document.querySelector('.headshot')
   profileImages = profileImages.reverse()
   profileImages.forEach((image, i) => {
     setTimeout(() => {
-      f.style.backgroundImage = `url(${image})`
+      headshot.style.backgroundImage = `url(${image})`
     }, i * 100)
   })
+  setTimeout(() => {
+    toggleDarkMode()
+  },100 * (profileImages.length - 1))
+}
+
+function toggleDarkMode() {
+  backgroundColors = backgroundColors.reverse()
+  textColors = textColors.reverse()
+  
+  const whiteBackgrounds = ['landing-name']
+  const blackBackgrounds = ['bd']
+  const whiteTextIds = ['landing-title','text-wh-0', 'text-wh-1', 'text-wh-2', 'text-wh-3', 'contacts-wrapper', 'footer', 'down-arrow', 'contactLink-0', 'contactLink-1', 'contactLink-2']
+  const blackTextIds = ['landing-name']
+
+  blackBackgrounds.forEach(element => document.getElementById(element).classList.add(backgroundColors[0]))
+  blackBackgrounds.forEach(element => document.getElementById(element).classList.remove(backgroundColors[1]))
+
+  whiteBackgrounds.forEach(element => document.getElementById(element).classList.add(backgroundColors[1]))
+  whiteBackgrounds.forEach(element => document.getElementById(element).classList.remove(backgroundColors[0]))
+
+  whiteTextIds.forEach(element => document.getElementById(element).classList.add(textColors[1]))
+  whiteTextIds.forEach(element => document.getElementById(element).classList.remove(textColors[0]))
+
+  blackTextIds.forEach(element => document.getElementById(element).classList.add(textColors[0]))
+  blackTextIds.forEach(element => document.getElementById(element).classList.remove(textColors[1]))
 }
 
 function displayIcons() {
@@ -218,37 +242,55 @@ function displayProjects() {
     element.classList.add('project-card')
     grid.appendChild(element)
 
-    // const title = document.createElement('div')
-    // title.innerHTML = project.name
-    // title.classList.add('project-title', 'red-background')
-    // grid.appendChild(title)
-
     const content = document.createElement('div')
-    content.classList.add('project-content', 'text-white')
+    content.classList.add('project-content', 'background-black', 'text-white')
     element.appendChild(content)
 
     const description = document.createElement('p')
     description.classList.add('project-description')
     content.appendChild(description)
-    description.textContent = project.description
+    description.textContent = `${project.name} - ${project.description}`
 
     const links = document.createElement('div')
-    links.classList.add('project-links')
+    links.classList.add('flex-row')
     content.appendChild(links)
 
+    const githubContainer = document.createElement('div')
+    githubContainer.classList.add('flex-column', 'centered')
+    githubContainer.addEventListener('mouseenter', toggleHiddenChild)
+    githubContainer.addEventListener('mouseleave', toggleHiddenChild)
+    links.appendChild(githubContainer)
+
     const githubLink = document.createElement('A')
-    githubLink.classList.add('github-link', 'devicon-github-plain')
+    githubLink.classList.add('github-link', 'text-white', 'devicon-github-plain')
     githubLink.href = project.urlGithub
     githubLink.target = '_blank'
     githubLink.rel = 'noreferrer'
-    links.appendChild(githubLink)
+    githubContainer.appendChild(githubLink)
+
+    const githubLinkText = document.createElement('P')
+    githubLinkText.classList.add('hidden')
+    githubContainer.appendChild(githubLinkText)
+    githubLinkText.textContent = 'See code'
+
+  
+    const liveLinkContainer = document.createElement('div')
+    liveLinkContainer.classList.add('flex-column', 'centered')
+    liveLinkContainer.addEventListener('mouseenter', toggleHiddenChild)
+    liveLinkContainer.addEventListener('mouseleave', toggleHiddenChild)
+    links.appendChild(liveLinkContainer)
 
     const liveLink = document.createElement('A')
-    liveLink.classList.add('live-link', (project.urlLive.slice(18, 24) === 'github' ? 'devicon-github-plain' : 'devicon-heroku-original'))
+    liveLink.classList.add('live-link', 'text-white', (project.urlLive.slice(18, 24) === 'github' ? 'devicon-github-plain' : 'devicon-heroku-original'))
     liveLink.href = project.urlLive
     liveLink.target = '_blank'
     liveLink.rel = 'noreferrer'
-    links.appendChild(liveLink)
+    liveLinkContainer.appendChild(liveLink)
+
+    const liveLinkText = document.createElement('P')
+    liveLinkText.classList.add('hidden')
+    liveLinkContainer.appendChild(liveLinkText)
+    liveLinkText.textContent = 'See live'
 
     const tools = document.createElement('P')
     tools.classList.add('project-description')
@@ -267,7 +309,8 @@ function displayContacts() {
   const container = document.getElementById('contacts-wrapper')
   contactsContent.forEach(contact => { 
     const element = document.createElement('a')
-    element.classList.add(contact.class.slice(0, 3), contact.class.slice(4), 'contact-link')
+    element.id = `contactLink-${contactsContent.indexOf(contact)}`
+    element.classList.add(contact.class.slice(0, 3), contact.class.slice(4), 'contact-link', 'text-white')
     element.href = contact.href
     element.target = '_blank'
     element.rel = 'noreferrer'
