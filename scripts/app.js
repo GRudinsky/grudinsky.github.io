@@ -2,10 +2,6 @@
 
 // SKILLS DATA
 const devIcons = [
-  // {
-  //   name: 'Apple',
-  //   class: 'devicon-apple-original'
-  // },
   {
     name: 'Atom',
     class: 'devicon-atom-original'
@@ -253,25 +249,48 @@ function displayProjects() {
     const description = document.createElement('p')
     description.classList.add('project-description')
     content.appendChild(description)
-    description.textContent = project.description
+    description.textContent = `${project.name} - ${project.description}`
 
     const links = document.createElement('div')
-    links.classList.add('project-links')
+    links.classList.add('flex-row')
     content.appendChild(links)
+
+    const githubContainer = document.createElement('div')
+    githubContainer.classList.add('flex-column', 'centered')
+    githubContainer.addEventListener('mouseenter', toggleHiddenChild)
+    githubContainer.addEventListener('mouseleave', toggleHiddenChild)
+    links.appendChild(githubContainer)
 
     const githubLink = document.createElement('A')
     githubLink.classList.add('github-link', 'text-white', 'devicon-github-plain')
     githubLink.href = project.urlGithub
     githubLink.target = '_blank'
     githubLink.rel = 'noreferrer'
-    links.appendChild(githubLink)
+    githubContainer.appendChild(githubLink)
+
+    const githubLinkText = document.createElement('P')
+    githubLinkText.classList.add('hidden')
+    githubContainer.appendChild(githubLinkText)
+    githubLinkText.textContent = 'See code'
+
+  
+    const liveLinkContainer = document.createElement('div')
+    liveLinkContainer.classList.add('flex-column', 'centered')
+    liveLinkContainer.addEventListener('mouseenter', toggleHiddenChild)
+    liveLinkContainer.addEventListener('mouseleave', toggleHiddenChild)
+    links.appendChild(liveLinkContainer)
 
     const liveLink = document.createElement('A')
     liveLink.classList.add('live-link', 'text-white', (project.urlLive.slice(18, 24) === 'github' ? 'devicon-github-plain' : 'devicon-heroku-original'))
     liveLink.href = project.urlLive
     liveLink.target = '_blank'
     liveLink.rel = 'noreferrer'
-    links.appendChild(liveLink)
+    liveLinkContainer.appendChild(liveLink)
+
+    const liveLinkText = document.createElement('P')
+    liveLinkText.classList.add('hidden')
+    liveLinkContainer.appendChild(liveLinkText)
+    liveLinkText.textContent = 'See live'
 
     const tools = document.createElement('P')
     tools.classList.add('project-description')
