@@ -114,6 +114,14 @@ const projectsContent = [
     urlGithub: 'https://github.com/GRudinsky/SEI-group-project'
   },
   {
+    name: 'Restorent',
+    imagePath: 'assets/images/project_homework.png',
+    description: 'Car review platform, built as a weekend homework at General Assembly.',
+    tools: 'HTML | SCSS | JavaScript | React | Node.js | MongoDB | RESTful API' ,
+    urlLive: 'https://rustorrent.herokuapp.com/',
+    urlGithub: 'https://github.com/GRudinsky/restorent'
+  },
+  {
     name: 'News On The Mews',
     imagePath: 'assets/images/project2.png',
     description: 'News aggregating website, built as pair-programming project at General Assembly.',
