@@ -34,11 +34,20 @@ html {
 .background-white {
   background-color: #F7F7F2;
 }
+
 .background-black {
   background-color: #0C090D;
 }
+
 .background-colored {
   background-color: #92918D;
+}
+
+.with-transition {
+  transition: background-color .5s linear; 
+  -moz-transition: background-color .5s linear;  
+  -webkit-transition: background-color .5s linear; 
+  -ms-transition: background-color .5s linear; 
 }
 
 .text-white {
@@ -296,4 +305,17 @@ font-size: 15vmin;
  }
  footer > p {
    margin-right: 2.5vw;
+ }
+
+ /* MOBILE RESPONSIVENESS */
+
+ @media screen and (max-width: 768px) {
+   .about-content {
+     display: flex;
+     flex-direction: column;
+   }
+   .about-content > div {
+  width: 100%;
+  margin-top: 2.5vh;
+}
  }
