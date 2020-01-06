@@ -187,9 +187,7 @@ function changeImages() {
       headshot.style.backgroundImage = `url(${image})`
     }, i * 100)
   })
-  setTimeout(() => {
-    toggleDarkMode()
-  },100 * (profileImages.length - 1))
+  toggleDarkMode()
 }
 
 function toggleDarkMode() {
