@@ -43,11 +43,11 @@ html {
   background-color: #92918D;
 }
 
-.with-transition {
-  transition: background-color .5s linear; 
-  -moz-transition: background-color .5s linear;  
-  -webkit-transition: background-color .5s linear; 
-  -ms-transition: background-color .5s linear; 
+.with-color-transition {
+  transition: background-color .25s linear; 
+  -moz-transition: background-color .25s linear;  
+  -webkit-transition: background-color .25s linear; 
+  -ms-transition: background-color .25s linear; 
 }
 
 .text-white {
@@ -204,6 +204,10 @@ html {
   background-size: contain;
   background-image: url('../assets/images/BGA_1430.jpg');
   opacity: 0.8;
+  transition: background-image .1s linear; 
+  -moz-transition: background-image .1s linear;  
+  -webkit-transition: background-image .1s linear; 
+  -ms-transition: background-image .1s linear; 
 }
 .devicons-container {
   display: flex;
