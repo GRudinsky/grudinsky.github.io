@@ -313,9 +313,9 @@ function toggleHiddenChild(e){
 
 function displayContacts() {
   const container = document.getElementById('contacts-wrapper')
-  contactsContent.forEach(contact => { 
+  contactsContent.forEach((contact, idx) => { 
     const element = document.createElement('a')
-    element.id = `contactLink-${contactsContent.indexOf(contact)}`
+    element.id = `contactLink-${idx}`
     element.classList.add(contact.class.slice(0, 3), contact.class.slice(4), 'contact-link', 'text-white')
     element.href = contact.href
     element.target = '_blank'
