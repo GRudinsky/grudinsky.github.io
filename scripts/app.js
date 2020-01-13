@@ -89,8 +89,8 @@ const devIcons = [
 ]
 
 // PROFILE IMAGES
-
-let profileImages = ['assets/images/BGA_1434.jpg', 'assets/images/BGA_1433.jpg', 'assets/images/BGA_1432.jpg', 'assets/images/BGA_1431.jpg', 'assets/images/BGA_1430.jpg', 'assets/images/BGA_1429.jpg']
+let profileImages = ['https://i.imgur.com/pO3gg7k.jpg', 'https://i.imgur.com/0zAJrpw.jpg', 'https://i.imgur.com/KXdMgGS.jpg', 'https://i.imgur.com/B3laqtU.jpg']
+// let profileImages = ['assets/images/BGA_1434.jpg', 'assets/images/BGA_1433.jpg', 'assets/images/BGA_1432.jpg', 'assets/images/BGA_1431.jpg', 'assets/images/BGA_1430.jpg', 'assets/images/BGA_1429.jpg']
 let backgroundColors = ['background-black', 'background-white']
 let textColors = ['text-black', 'text-white']
 
