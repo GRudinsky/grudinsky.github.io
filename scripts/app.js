@@ -159,6 +159,9 @@ const contactsContent = [
   }
 ]
 
+const whiteTextArray = []
+const blackBackgroundsArray = []
+
 // LANDING PAGE
 
 function makeTextBlink(arg) {
@@ -203,8 +206,8 @@ function toggleDarkMode() {
   textColors = textColors.reverse()
   
   const whiteBackgrounds = ['landing-name']
-  const blackBackgrounds = ['bd']
-  const whiteTextIds = ['landing-title','text-wh-0', 'text-wh-1', 'text-wh-2', 'text-wh-3', 'contacts-wrapper', 'footer', 'down-arrow', 'contactLink-0', 'contactLink-1', 'contactLink-2']
+  const blackBackgrounds = ['bd',...blackBackgroundsArray ]
+  const whiteTextIds = ['landing-title', 'text-wh-0', 'text-wh-1', 'text-wh-2', 'text-wh-3', 'contacts-wrapper', 'footer', 'down-arrow', ...whiteTextArray]
   const blackTextIds = ['landing-name']
 
   blackBackgrounds.forEach(element => document.getElementById(element).classList.add(backgroundColors[0]))
@@ -241,7 +244,7 @@ function displayIcons() {
 
 function displayProjects() {
   const grid = document.getElementById('projects-wrapper')
-  projectsContent.forEach(project => {
+  projectsContent.forEach((project, idx) => {
 
     const element = document.createElement('div')
     element.style.backgroundImage = `url(${project.imagePath})`
@@ -249,6 +252,9 @@ function displayProjects() {
     grid.appendChild(element)
 
     const content = document.createElement('div')
+    content.id = `project${idx}`
+    whiteTextArray.push(`project${idx}`)
+    blackBackgroundsArray.push(`project${idx}`)
     content.classList.add('project-content', 'background-black', 'text-white')
     element.appendChild(content)
 
@@ -268,6 +274,9 @@ function displayProjects() {
     links.appendChild(githubContainer)
 
     const githubLink = document.createElement('A')
+    
+    githubLink.setAttribute('id', `codeLink${idx}`)
+    whiteTextArray.push(`codeLink${idx}`)
     githubLink.classList.add('github-link', 'text-white', 'devicon-github-plain')
     githubLink.href = project.urlGithub
     githubLink.target = '_blank'
@@ -287,6 +296,8 @@ function displayProjects() {
     links.appendChild(liveLinkContainer)
 
     const liveLink = document.createElement('A')
+    liveLink.setAttribute('id', `liveLink${idx}`)
+    whiteTextArray.push(`liveLink${idx}`)
     liveLink.classList.add('live-link', 'text-white', (project.urlLive.slice(18, 24) === 'github' ? 'devicon-github-plain' : 'devicon-heroku-original'))
     liveLink.href = project.urlLive
     liveLink.target = '_blank'
@@ -315,7 +326,8 @@ function displayContacts() {
   const container = document.getElementById('contacts-wrapper')
   contactsContent.forEach((contact, idx) => { 
     const element = document.createElement('a')
-    element.id = `contactLink-${idx}`
+    element.id = `contactLink${idx}`
+    whiteTextArray.push(`contactLink${idx}`)
     element.classList.add(contact.class.slice(0, 3), contact.class.slice(4), 'contact-link', 'text-white')
     element.href = contact.href
     element.target = '_blank'
