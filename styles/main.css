@@ -44,10 +44,10 @@ html {
 }
 
 .with-color-transition {
-  transition: background-color .25s linear; 
-  -moz-transition: background-color .25s linear;  
-  -webkit-transition: background-color .25s linear; 
-  -ms-transition: background-color .25s linear; 
+  transition: background-color .5s linear; 
+  -moz-transition: background-color .5s linear;  
+  -webkit-transition: background-color .5s linear; 
+  -ms-transition: background-color .5s linear; 
 }
 
 .text-white {
