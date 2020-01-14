@@ -88,9 +88,8 @@ const devIcons = [
   }
 ]
 
-// PROFILE IMAGES
+const changingText = ['FRONT END', 'BACK END', 'FULL STACK']
 let profileImages = ['https://i.imgur.com/pO3gg7k.jpg', 'https://i.imgur.com/0zAJrpw.jpg', 'https://i.imgur.com/KXdMgGS.jpg', 'https://i.imgur.com/B3laqtU.jpg']
-// let profileImages = ['assets/images/BGA_1434.jpg', 'assets/images/BGA_1433.jpg', 'assets/images/BGA_1432.jpg', 'assets/images/BGA_1431.jpg', 'assets/images/BGA_1430.jpg', 'assets/images/BGA_1429.jpg']
 let backgroundColors = ['background-black', 'background-white']
 let textColors = ['text-black', 'text-white']
 
@@ -164,11 +163,23 @@ const blackBackgroundsArray = []
 
 // LANDING PAGE
 
-function makeTextBlink(arg) {
-  const f = document.getElementById(arg)
+function changeTitle() {
+  const title = document.getElementById('landing-title')
+  title.classList.add('fade-in')
   setInterval(() => {
-    f.style.visibility = (f.style.visibility === 'hidden' ? 'visible' : 'hidden')
-  }, 500)
+    changingText.forEach((text, i) => {
+      setTimeout(() => {
+        title.classList.remove('fade-out')
+        title.classList.add('fade-in')
+        title.innerHTML = text
+        setTimeout(() => {
+          title.classList.remove('fade-in')
+          title.classList.add('fade-out')
+        },1000)
+      }, i * 3000)
+  
+    })
+  }, 9000)
 }
 
 function getDayTime(idName, content) {
@@ -335,8 +346,15 @@ function displayContacts() {
     container.appendChild(element)
   })
 }
+function makeTextBlink(arg) {
+  const f = document.getElementById(arg)
+  setInterval(() => {
+    f.style.visibility = (f.style.visibility === 'hidden' ? 'visible' : 'hidden')
+  }, 500)
+}
 
 document.addEventListener('DOMContentLoaded', () => {
+  changeTitle()
   makeTextBlink('text-cursor')
   getDayTime('time-of-day', 'dayTime')
   // getDayTime('time-of-week', 'weekDay')

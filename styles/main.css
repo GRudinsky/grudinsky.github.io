@@ -6,29 +6,7 @@
 html {
   scroll-behavior: smooth;
 }
-.parallax {
-  perspective: 1px;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-.parallax__layer {
-  position: absolute;
-  padding: 100vh 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-.parallax__layer--base {
-  transform: translateZ(0);
-  top: -45vh;
-  z-index: -100;
-}
-.parallax__layer--back {
-  transform: translateZ(-1px) scale(2);
-  top: -70vh;
-}
+
 /* FLEXBOX STYLES */
 .flex-column {
   display: flex;
@@ -102,9 +80,34 @@ html {
   display: inline;
 }
 
-/* NAVBAR SECTION */
 
 /* TOP SECTION */
+
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transform-style: preserve-3d;
+}
+
+.parallax__layer {
+  position: absolute;
+  padding: 100vh 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.parallax__layer--base {
+  transform: translateZ(0);
+  top: -48vh;
+  z-index: -100;
+}
+.parallax__layer--back {
+  transform: translateZ(-1px) scale(2);
+  top: -75vh;
+}
  
 #top {
   width: 100%;
@@ -125,7 +128,61 @@ html {
 .top-title-small {
   font-size: 8vmin;
   margin: 2.5vmin 2.5vmin 0 0;
+  /* opacity:0.8; */
 }
+.fade-in {
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+}
+  @keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: .8; }
+}
+
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: .8; }
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: .8; }
+}
+
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: .8; }
+}
+.fade-out {
+    -webkit-animation: fadeout 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadeout 2s; /* Firefox < 16 */
+        -ms-animation: fadeout 2s; /* Internet Explorer */
+         -o-animation: fadeout 2s; /* Opera < 12.1 */
+            animation: fadeout 2s;
+}
+  @keyframes fadeout {
+    from { opacity: .8; }
+    to   { opacity: 0; }
+}
+
+@-moz-keyframes fadeout {
+    from { opacity: .8; }
+    to   { opacity: 0; }
+}
+
+@-webkit-keyframes fadeout {
+    from { opacity: .8; }
+    to   { opacity: 0; }
+}
+
+@-ms-keyframes fadeout {
+    from { opacity: .8; }
+    to   { opacity: 0; }
+}
+
 .down-arrow {
   position: absolute;
   top: 90vh;
