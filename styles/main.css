@@ -6,7 +6,29 @@
 html {
   scroll-behavior: smooth;
 }
-
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.parallax__layer {
+  position: absolute;
+  padding: 100vh 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.parallax__layer--base {
+  transform: translateZ(0);
+  top: -45vh;
+  z-index: -100;
+}
+.parallax__layer--back {
+  transform: translateZ(-1px) scale(2);
+  top: -70vh;
+}
 /* FLEXBOX STYLES */
 .flex-column {
   display: flex;
