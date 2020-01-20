@@ -79,7 +79,26 @@ html {
   font-size: 5vmin;
   display: inline;
 }
-
+/* HEADER SECTION */
+.mode-toggle--container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  position: fixed;
+  z-index: 1;
+  top: 2vh;
+  right: 1vw;
+  height: 5vmin;
+  width: 8vmin;
+  border-radius: 50%;
+  opacity: 0.2;
+}
+.mode-toggle {
+  display: block;
+  text-align: center;
+  font-size: 5vmin;
+}
 
 /* TOP SECTION */
 
@@ -108,6 +127,10 @@ html {
   transform: translateZ(-1px) scale(2);
   top: -75vh;
 }
+/* .parallax__layer--back1 {
+  transform: translateZ(-2px) scale(2);
+  top: -75vh;
+} */
  
 #top {
   width: 100%;
@@ -128,6 +151,9 @@ html {
 .top-title-small {
   font-size: 8vmin;
   margin: 2.5vmin 2.5vmin 0 0;
+  /* width: 35vw; */
+  text-align: right;
+  padding-bottom: 2.5vmin;
   /* opacity:0.8; */
 }
 .fade-in {
@@ -276,13 +302,11 @@ html {
 }
 .headshot {
   width: 80%;
-  height: 70vh;
-  background-attachment: fixed;
-  background-position: 5vw 17vh;
-  background-repeat: no-repeat;
+  height: 70vmin;
+  background: url('https://i.imgur.com/z4fcA9x.jpg') no-repeat center;
+    /* background-attachment: fixed;
+  background-position: 5vw 17vh; */
   background-size: contain;
-  background-image: url('https://i.imgur.com/z4fcA9x.jpg');
-  /* background-image: url('../assets/images/BGA_1430.jpg'); */
   opacity: 0.8;
   transition: background-image .1s linear; 
   -moz-transition: background-image .1s linear;  
@@ -301,17 +325,17 @@ html {
   justify-content: center;
   align-items: center;
   margin: 1vmin;
-  width: 10vh;
-  height: 10vh;
+  width: 15vmin;
+  height: 15vmin;
 }
 .devicons-container > div:hover {
   font-size: 8vmin;
 }
 .icon {
-font-size: 9vmin;
+font-size: 12vmin;
 }
 .icon:hover {
-  font-size: 8vmin;
+  font-size: 10vmin;
 }
 .icon-name {
   font-size: 2vmin;
@@ -324,7 +348,7 @@ font-size: 9vmin;
   height: 80vh;
   background-attachment:fixed;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat center;
   background-size: cover;
 }
 .project-card:hover {

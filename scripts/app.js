@@ -99,7 +99,7 @@ const projectsContent = [
   {
     name: 'Find That Flight',
     imagePath: 'assets/images/project4.png',
-    description: 'Flight ticket search app, built as final solo project at General Assembly.',
+    description: 'Find that Flight - flight destination and ticket search application that gives out the destination suggestions on image tiles and displays them on dynamic map.',
     tools: 'HTML | SCSS | JavaScript | React | Python | Django | PostgreSQL | MapBoxGL | External API\'s',
     urlLive: 'https://findthatflight.herokuapp.com/',
     urlGithub: 'https://github.com/GRudinsky/SEI-project-04'
@@ -107,7 +107,7 @@ const projectsContent = [
   {
     name: 'Rekordr',
     imagePath: 'assets/images/project3.png',
-    description: 'Music collection organizing page, built as group project at General Assembly.',
+    description: 'Music collection organizing page, built as group project at General Assembly. It was a 3-person group MERN stack project, built using React.js on the front-end and MongoDb on the back-end. The final result is a web-app that allows the user to play album content, search for music albums in Deezer music database, add and remove from their personal collections and browse other users collection within Rekordr database.',
     tools: 'HTML | SCSS | JavaScript | React | Node.js | MongoDB | Deezer API',
     urlLive: 'https://rekordr.herokuapp.com/',
     urlGithub: 'https://github.com/GRudinsky/SEI-group-project'
@@ -123,7 +123,7 @@ const projectsContent = [
   {
     name: 'News On The Mews',
     imagePath: 'assets/images/project2.png',
-    description: 'News aggregating website, built as pair-programming project at General Assembly.',
+    description: 'News aggregating website, built as 48 hour pair-programming Reactathon at General Assembly.',
     tools: 'HTML | SCSS | JavaScript | React | NewsAPI',
     urlLive: 'https://newsonthemews.herokuapp.com/',
     urlGithub: 'https://github.com/GRudinsky/sei-project-2'
@@ -131,7 +131,7 @@ const projectsContent = [
   {
     name: 'Pacman Game',
     imagePath: 'assets/images/project1.png',
-    description: 'Pac-Man game, built as solo project at General Assembly.',
+    description: 'Pac-Man browser game, built as solo project at General Assembly.',
     tools: 'HTML | CSS | JavaScript',
     urlLive: 'https://grudinsky.github.io/project-pacman/',
     urlGithub: 'https://github.com/GRudinsky/project-pacman'
