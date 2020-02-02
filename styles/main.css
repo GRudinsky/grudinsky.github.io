@@ -5,6 +5,7 @@
 }
 html {
   scroll-behavior: smooth;
+  height:400vh;
 }
 
 /* FLEXBOX STYLES */
@@ -76,6 +77,7 @@ html {
   margin: 0 auto;
 }
 .section-title {
+  /* position: absolute; */
   font-size: 5vmin;
   display: inline;
 }
@@ -101,18 +103,31 @@ html {
 }
 
 /* TOP SECTION */
-
-.parallax {
-  perspective: 1px;
+/* .top{
+  perspective: 2px;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
   transform-style: preserve-3d;
+} */
+
+.parallax {
+  perspective: 2px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transform-style: preserve-3d;
+}
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .parallax__layer {
   position: absolute;
-  padding: 100vh 0;
+  /* padding: 100vh 0; */
   top: 0;
   right: 0;
   bottom: 0;
@@ -124,7 +139,7 @@ html {
   z-index: -100;
 }
 .parallax__layer--back {
-  transform: translateZ(-1px) scale(2);
+  transform: translateZ(-10px) scale(40);
   top: -75vh;
 }
 /* .parallax__layer--back1 {
@@ -133,6 +148,8 @@ html {
 } */
  
 #top {
+  /* position:fixed; */
+  top: 0px;
   width: 100%;
   justify-content: center;
   align-items: center;
