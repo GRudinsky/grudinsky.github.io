@@ -5,7 +5,7 @@
 }
 html {
   scroll-behavior: smooth;
-  height:400vh;
+  height: 500vh;
 }
 
 /* FLEXBOX STYLES */
@@ -127,32 +127,40 @@ html {
 
 .parallax__layer {
   position: absolute;
-  /* padding: 100vh 0; */
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  opacity: 0;
+  /* z-index: -999; */
 }
-.parallax__layer--base {
-  transform: translateZ(0);
-  top: -48vh;
-  z-index: -100;
+.parallax-layer_1 {
+  position: absolute;
+  transform: translateZ(-50px);
+  top: 0;
+  /* z-index: 1; */
 }
-.parallax__layer--back {
-  transform: translateZ(-10px) scale(40);
-  top: -75vh;
+.parallax-layer-2 {
+  position: absolute;
+  transform: translateZ(-100px);
+  top: 0;
+  /* z-index: 1; */
 }
-/* .parallax__layer--back1 {
-  transform: translateZ(-2px) scale(2);
-  top: -75vh;
-} */
+.parallax-layer-3 {
+  position: absolute;
+  transform: translateZ(-15px);
+  top: 0;
+  /* z-index: 1; */
+}
  
 #top {
-  /* position:fixed; */
+  position: fixed;
   top: 0px;
   width: 100%;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  max-height: 100vh;
 }
 .title-wrapper :nth-child(3) {
   margin-right: 15vmin;
@@ -342,8 +350,8 @@ html {
   justify-content: center;
   align-items: center;
   margin: 1vmin;
-  width: 15vmin;
-  height: 15vmin;
+  width: 10vmin;
+  height: 10vmin;
 }
 .devicons-container > div:hover {
   font-size: 8vmin;

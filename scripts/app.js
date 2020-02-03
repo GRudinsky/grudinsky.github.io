@@ -3,46 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
   ////////////////////////////// SCROLL OBSERVER SECTION ///////////////////////////////
 
   window.onscroll = function () {
-    scrollLog() 
+    scrollLog()
   }
 
-  function scrollLog() {
-    const scr = window.scrollY
-    const winH = window.innerHeight
-    const lTag = document.getElementById('landing')
-    lTag.style.transform = `translateZ(${-scr / 120}vmin)`
-    const aboutTag = document.getElementById('abt')
-    // const projectsTag = document.getElementById('pjs')
-    // const contactsTag = document.getElementById('cts')
-    const depth = (scr - winH) / 120
-    // console.log('depth', depth)
-    aboutTag.style.transform = `translateZ(${depth}vmin)`
-
-    // const observer = new IntersectionObserver(handler)
-
-    // observer.observe(aboutTag)
-    // observer.observe(projectsTag)
-    // observer.observe(contactsTag)
-    
-    // function handler(entries) {
-    //   for (entry of entries) {
-    //     // console.log(entry)
-    //     const hght = entry.target.scrollHeight
-    //     if (entry.isIntersecting) {
-    //       // console.log(entry.target,scr, hght)
-    //       entry.target.style.transform = `translateZ(${(scr - hght) / winH}vh)`
-    //       // entry.style.transform = `translateZ(${depth}vmin)`
-    //     } else {
-    //       // entry.target.style.transform = `translateZ(${(-winH + scr) / 120}vmin)`
-    //       // console.log(-winH + scr)
-    //     }
-    //   }
-    // }
-
-  // const projectsTag = document.getElementById('text-wh-2')
-  // projectsTag.style.perspective = `${-scr}px`
-  // projectsTag.style.transform = `translateZ(${depth - 1}vmin)`
-  }
+  
 
   ////////////////////////////// DATA SECTION ///////////////////////////////
 
@@ -252,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
     profileImages = profileImages.reverse()
     profileImages.forEach((image, i) => {
       setTimeout(() => {
-        headshot.style.backgroundImage = `url(${image})`
+        headshot.style.backgroundImage = `url(${ image })`
       }, i * 100)
     })
   // toggleDarkMode()
@@ -300,25 +264,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // PROJECTS SECTION
 
   function displayProjects() {
-    const grid = document.getElementById('projects-wrapper')
+    const parent = document.getElementById('top')
     projectsContent.forEach((project, idx) => {
 
       const element = document.createElement('div')
-      element.style.backgroundImage = `url(${project.imagePath})`
+      element.style.backgroundImage = `url(${ project.imagePath })`
+      element.id = `p-${idx}`
       element.classList.add('project-card')
-      grid.appendChild(element)
+      element.classList.add('parallax-layer-2')
+      parent.appendChild(element)
 
       const content = document.createElement('div')
-      content.id = `project${idx}`
-      whiteTextArray.push(`project${idx}`)
-      blackBackgroundsArray.push(`project${idx}`)
+      content.id = `project${ idx } `
+      whiteTextArray.push(`project${ idx } `)
+      blackBackgroundsArray.push(`project${ idx } `)
       content.classList.add('project-content', 'background-black', 'text-white')
       element.appendChild(content)
 
       const description = document.createElement('p')
       description.classList.add('project-description')
       content.appendChild(description)
-      description.textContent = `${project.name} - ${project.description}`
+      description.textContent = `${ project.name } - ${ project.description } `
 
       const links = document.createElement('div')
       links.classList.add('flex-row')
@@ -332,8 +298,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const githubLink = document.createElement('A')
     
-      githubLink.setAttribute('id', `codeLink${idx}`)
-      whiteTextArray.push(`codeLink${idx}`)
+      githubLink.setAttribute('id', `codeLink${ idx } `)
+      whiteTextArray.push(`codeLink${ idx } `)
       githubLink.classList.add('github-link', 'text-white', 'devicon-github-plain')
       githubLink.href = project.urlGithub
       githubLink.target = '_blank'
@@ -353,8 +319,8 @@ document.addEventListener('DOMContentLoaded', () => {
       links.appendChild(liveLinkContainer)
 
       const liveLink = document.createElement('A')
-      liveLink.setAttribute('id', `liveLink${idx}`)
-      whiteTextArray.push(`liveLink${idx}`)
+      liveLink.setAttribute('id', `liveLink${ idx } `)
+      whiteTextArray.push(`liveLink${ idx } `)
       liveLink.classList.add('live-link', 'text-white', (project.urlLive.slice(18, 24) === 'github' ? 'devicon-github-plain' : 'devicon-heroku-original'))
       liveLink.href = project.urlLive
       liveLink.target = '_blank'
@@ -383,8 +349,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('contacts-wrapper')
     contactsContent.forEach((contact, idx) => { 
       const element = document.createElement('a')
-      element.id = `contactLink${idx}`
-      whiteTextArray.push(`contactLink${idx}`)
+      element.id = `contactLink${ idx } `
+      whiteTextArray.push(`contactLink${ idx } `)
       element.classList.add(contact.class.slice(0, 3), contact.class.slice(4), 'contact-link', 'text-white')
       element.href = contact.href
       element.target = '_blank'
@@ -400,9 +366,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // window.onscroll = function () {
-  //   scrollLog()
-  // }
+  function scrollLog() {
+    const scr = window.scrollY
+    const winH = window.innerHeight
+    const lTag = document.getElementById('landing')
+
+    const aboutTag = document.getElementById('abt')
+    const projectsTag = document.getElementById('works')
+    const contactsTag = document.getElementById('contact')
+    const project0 = document.getElementById('p-0')
+    const project1 = document.getElementById('p-1')
+    const project2 = document.getElementById('p-2')
+    const project3 = document.getElementById('p-3')
+    
+
+    lTag.style.transform = `translateZ(${-scr / 120}vmin)`
+    aboutTag.style.transform = `translateZ(${(scr - winH) / 120}vmin)`
+    projectsTag.style.transform = `translateZ(${(scr - 1.5 * winH) / 120}vmin)`
+    project0.style.transform = `translateZ(${(scr - 2 * winH) / 120}vmin)`
+    project1.style.transform = `translateZ(${(scr - 2.5 * winH) / 120}vmin)`
+    project2.style.transform = `translateZ(${(scr - 3 * winH) / 120}vmin)`
+    project3.style.transform = `translateZ(${(scr - 3.5 * winH) / 120}vmin)`
+    contactsTag.style.transform = `translateZ(${(scr - 4 * winH) / 120}vmin)`
+  }
+
 
 
   changeTitle()
