@@ -2,11 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ////////////////////////////// SCROLL OBSERVER SECTION ///////////////////////////////
 
-  window.onscroll = function () {
-    scrollLog()
-  }
 
-  
 
   ////////////////////////////// DATA SECTION ///////////////////////////////
 
@@ -109,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       name: 'Find That Flight',
       imagePath: 'assets/images/project4.png',
-      description: 'Find that Flight - flight destination and ticket search application that gives out the destination suggestions on image tiles and displays them on dynamic map.',
+      description: 'A flight destination and ticket search application that gives out the destination suggestions on image tiles and displays them on dynamic map.',
       tools: 'HTML | SCSS | JavaScript | React | Python | Django | PostgreSQL | MapBoxGL | External API\'s',
       urlLive: 'https://findthatflight.herokuapp.com/',
       urlGithub: 'https://github.com/GRudinsky/SEI-project-04'
@@ -126,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Restorent',
       imagePath: 'assets/images/project_homework.png',
       description: 'Car review platform, built as a weekend homework at General Assembly.',
-      tools: 'HTML | SCSS | JavaScript | React | Node.js | MongoDB | RESTful API' ,
+      tools: 'HTML | SCSS | JavaScript | React | Node.js | MongoDB | REST API',
       urlLive: 'https://rustorrent.herokuapp.com/',
       urlGithub: 'https://github.com/GRudinsky/restorent'
     },
@@ -185,9 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => {
             title.classList.remove('fade-in')
             title.classList.add('fade-out')
-          },1000)
+          }, 1000)
         }, i * 3000)
-  
       })
     }, 9000)
   }
@@ -216,18 +211,18 @@ document.addEventListener('DOMContentLoaded', () => {
     profileImages = profileImages.reverse()
     profileImages.forEach((image, i) => {
       setTimeout(() => {
-        headshot.style.backgroundImage = `url(${ image })`
+        headshot.style.backgroundImage = `url(${image})`
       }, i * 100)
     })
-  // toggleDarkMode()
+    // toggleDarkMode()
   }
 
   function toggleDarkMode() {
     backgroundColors = backgroundColors.reverse()
     textColors = textColors.reverse()
-  
+
     const whiteBackgrounds = ['landing-name']
-    const blackBackgrounds = ['bd',...blackBackgroundsArray ]
+    const blackBackgrounds = ['bd', ...blackBackgroundsArray]
     const whiteTextIds = ['landing-title', 'text-wh-0', 'text-wh-1', 'text-wh-2', 'text-wh-3', 'contacts-wrapper', 'footer', 'down-arrow', ...whiteTextArray]
     const blackTextIds = ['landing-name']
 
@@ -266,25 +261,34 @@ document.addEventListener('DOMContentLoaded', () => {
   function displayProjects() {
     const parent = document.getElementById('top')
     projectsContent.forEach((project, idx) => {
+      const section = document.createElement('section')
+      section.id = `p-${idx}`
+      section.classList.add('section-wrapper')
+      section.classList.add('parallax-layer')
+      parent.appendChild(section)
+
+      const title = document.createElement('div')
+      title.classList.add('project-title')
+      title.classList.add('text-white')
+      title.innerText = project.name.toUpperCase()
+      section.appendChild(title)
 
       const element = document.createElement('div')
-      element.style.backgroundImage = `url(${ project.imagePath })`
-      element.id = `p-${idx}`
+      element.style.backgroundImage = `url(${project.imagePath})`
       element.classList.add('project-card')
-      element.classList.add('parallax-layer-2')
-      parent.appendChild(element)
+      section.appendChild(element)
 
       const content = document.createElement('div')
-      content.id = `project${ idx } `
-      whiteTextArray.push(`project${ idx } `)
-      blackBackgroundsArray.push(`project${ idx } `)
+      content.id = `project${idx} `
+      whiteTextArray.push(`project${idx} `)
+      blackBackgroundsArray.push(`project${idx} `)
       content.classList.add('project-content', 'background-black', 'text-white')
       element.appendChild(content)
 
       const description = document.createElement('p')
       description.classList.add('project-description')
       content.appendChild(description)
-      description.textContent = `${ project.name } - ${ project.description } `
+      description.textContent = `${project.name} - ${project.description} `
 
       const links = document.createElement('div')
       links.classList.add('flex-row')
@@ -297,9 +301,9 @@ document.addEventListener('DOMContentLoaded', () => {
       links.appendChild(githubContainer)
 
       const githubLink = document.createElement('A')
-    
-      githubLink.setAttribute('id', `codeLink${ idx } `)
-      whiteTextArray.push(`codeLink${ idx } `)
+
+      githubLink.setAttribute('id', `codeLink${idx} `)
+      whiteTextArray.push(`codeLink${idx} `)
       githubLink.classList.add('github-link', 'text-white', 'devicon-github-plain')
       githubLink.href = project.urlGithub
       githubLink.target = '_blank'
@@ -311,7 +315,6 @@ document.addEventListener('DOMContentLoaded', () => {
       githubContainer.appendChild(githubLinkText)
       githubLinkText.textContent = 'See code'
 
-  
       const liveLinkContainer = document.createElement('div')
       liveLinkContainer.classList.add('flex-column', 'centered')
       liveLinkContainer.addEventListener('mouseenter', toggleHiddenChild)
@@ -319,8 +322,8 @@ document.addEventListener('DOMContentLoaded', () => {
       links.appendChild(liveLinkContainer)
 
       const liveLink = document.createElement('A')
-      liveLink.setAttribute('id', `liveLink${ idx } `)
-      whiteTextArray.push(`liveLink${ idx } `)
+      liveLink.setAttribute('id', `liveLink${idx} `)
+      whiteTextArray.push(`liveLink${idx} `)
       liveLink.classList.add('live-link', 'text-white', (project.urlLive.slice(18, 24) === 'github' ? 'devicon-github-plain' : 'devicon-heroku-original'))
       liveLink.href = project.urlLive
       liveLink.target = '_blank'
@@ -336,21 +339,19 @@ document.addEventListener('DOMContentLoaded', () => {
       tools.classList.add('project-description')
       content.appendChild(tools)
       tools.textContent = project.tools
-    }
-    )
+    })
   }
 
-  function toggleHiddenChild(e){
-    e.target.lastChild.classList.toggle('hidden')
-  }
+  const toggleHiddenChild = (e) => e.target.lastChild.classList.toggle('hidden')
+
   // CONTACTS SECTION
 
   function displayContacts() {
     const container = document.getElementById('contacts-wrapper')
-    contactsContent.forEach((contact, idx) => { 
+    contactsContent.forEach((contact, idx) => {
       const element = document.createElement('a')
-      element.id = `contactLink${ idx } `
-      whiteTextArray.push(`contactLink${ idx } `)
+      element.id = `contactLink${idx} `
+      whiteTextArray.push(`contactLink${idx} `)
       element.classList.add(contact.class.slice(0, 3), contact.class.slice(4), 'contact-link', 'text-white')
       element.href = contact.href
       element.target = '_blank'
@@ -365,33 +366,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500)
   }
 
-
   function scrollLog() {
     const scr = window.scrollY
     const winH = window.innerHeight
-    const lTag = document.getElementById('landing')
+    const scrolledVh = scr / winH
+    const sp = 200
+    // console.log('scrolled', scrolledVh)
 
-    const aboutTag = document.getElementById('abt')
-    const projectsTag = document.getElementById('works')
+    const lTag = document.getElementById('landing')
+    const aboutTag = document.getElementById('about')
+    const projectsTag = document.getElementById('projects')
     const contactsTag = document.getElementById('contact')
     const project0 = document.getElementById('p-0')
     const project1 = document.getElementById('p-1')
     const project2 = document.getElementById('p-2')
     const project3 = document.getElementById('p-3')
-    
+    const project4 = document.getElementById('p-4')
 
-    lTag.style.transform = `translateZ(${-scr / 120}vmin)`
-    aboutTag.style.transform = `translateZ(${(scr - winH) / 120}vmin)`
-    projectsTag.style.transform = `translateZ(${(scr - 1.5 * winH) / 120}vmin)`
-    project0.style.transform = `translateZ(${(scr - 2 * winH) / 120}vmin)`
-    project1.style.transform = `translateZ(${(scr - 2.5 * winH) / 120}vmin)`
-    project2.style.transform = `translateZ(${(scr - 3 * winH) / 120}vmin)`
-    project3.style.transform = `translateZ(${(scr - 3.5 * winH) / 120}vmin)`
-    contactsTag.style.transform = `translateZ(${(scr - 4 * winH) / 120}vmin)`
+    lTag.style.transform = `translateZ(${-scr / sp}vmin)`
+    aboutTag.style.transform = `translateZ(${(scr - winH) / sp}vmin)`
+    projectsTag.style.transform = `translateZ(${(scr - 1.5 * winH) / sp}vmin)`
+    project0.style.transform = `translateZ(${(scr - 2 * winH) / sp}vmin)`
+    project1.style.transform = `translateZ(${(scr - 2.5 * winH) / sp}vmin)`
+    project2.style.transform = `translateZ(${(scr - 3 * winH) / sp}vmin)`
+    project3.style.transform = `translateZ(${(scr - 3.5 * winH) / sp}vmin)`
+    project4.style.transform = `translateZ(${(scr - 4 * winH) / sp}vmin)`
+    contactsTag.style.transform = `translateZ(${(scr - 4.5 * winH) / sp}vmin)`
+
+    scrolledVh < 0.7 ? lTag.style.zIndex = 999 : lTag.style.zIndex = 0
+    aboutTag.style.zIndex = 800
+    projectsTag.style.zIndex = 700
+    project0.style.zIndex = 600
+    project1.style.zIndex = 500
+    project2.style.zIndex = 400
+    project3.style.zIndex = 300
+    project4.style.zIndex = 200
   }
 
-
-
+  window.onscroll = () => scrollLog()
   changeTitle()
   makeTextBlink('text-cursor')
   getDayTime('time-of-day', 'dayTime')
