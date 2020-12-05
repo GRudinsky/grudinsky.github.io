@@ -1,36 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  ////////////////////////////// SCROLL OBSERVER SECTION ///////////////////////////////
-
-
-
   ////////////////////////////// DATA SECTION ///////////////////////////////
 
   // SKILLS DATA
   const devIcons = [
     {
-      name: 'Atom',
-      class: 'devicon-atom-original'
-    },
-    {
-      name: 'Babel',
-      class: 'devicon-babel-plain'
-    },
-    {
-      name: 'Chrome',
-      class: 'devicon-chrome-plain'
+      name: 'HTML5',
+      class: 'devicon-html5-plain'
     },
     {
       name: 'CSS3',
       class: 'devicon-css3-plain'
     },
     {
-      name: 'Django',
-      class: 'devicon-django-plain'
+      name: 'Sass',
+      class: 'devicon-sass-original'
     },
     {
-      name: 'Express',
-      class: 'devicon-express-original'
+      name: 'JavaScript',
+      class: 'devicon-javascript-plain'
+    },
+    {
+      name: 'TypeScript',
+      class: 'devicon-typescript-plain'
+    },
+    {
+      name: 'React',
+      class: 'devicon-react-original'
+    },
+    {
+      name: 'Redux',
+      class: 'devicon-redux-original'
+    },
+    {
+      name: 'D3',
+      class: 'devicon-d3js-plain'
+    },
+    {
+      name: 'Node.js',
+      class: 'devicon-nodejs-plain'
+    },
+    {
+      name: 'Mocha',
+      class: 'devicon-mocha-plain'
+    },
+    {
+      name: 'Cucumber',
+      class: 'devicon-cucumber-plain'
     },
     {
       name: 'Git',
@@ -41,60 +57,36 @@ document.addEventListener('DOMContentLoaded', () => {
       class: 'devicon-github-plain'
     },
     {
-      name: 'Heroku',
-      class: 'devicon-heroku-original'
-    },
-    {
-      name: 'HTML5',
-      class: 'devicon-html5-plain'
-    },
-    {
-      name: 'JavaScript',
-      class: 'devicon-javascript-plain'
-    },
-    {
-      name: 'Mocha',
-      class: 'devicon-mocha-plain'
+      name: 'GitLab',
+      class: 'devicon-gitlab-plain'
     },
     {
       name: 'MongoDB',
       class: 'devicon-mongodb-plain'
     },
     {
-      name: 'Node.js',
-      class: 'devicon-nodejs-plain'
-    },
-    {
-      name: 'PostgreSQL',
-      class: 'devicon-postgresql-plain'
-    },
-    {
       name: 'Python',
       class: 'devicon-python-plain'
     },
     {
-      name: 'React',
-      class: 'devicon-react-original'
-    },
-    {
-      name: 'Sass',
-      class: 'devicon-sass-original'
+      name: 'Babel',
+      class: 'devicon-babel-plain'
     },
     {
       name: 'Webpack',
       class: 'devicon-webpack-plain'
     },
     {
-      name: 'VSCode',
-      class: 'devicon-visualstudio-plain'
+      name: 'Express',
+      class: 'devicon-express-original'
     },
     {
-      name: 'Slack',
-      class: 'devicon-slack-plain'
+      name: 'VSCode',
+      class: 'devicon-visualstudio-plain'
     }
   ]
 
-  const changingText = ['FRONT END', 'BACK END', 'FULL STACK']
+  const changingText = ['JAVASCRIPT ENGINEER','FRONT END DEVELOPER', 'REACT ENGINEER']
   let profileImages = ['https://i.imgur.com/pO3gg7k.jpg', 'https://i.imgur.com/0zAJrpw.jpg', 'https://i.imgur.com/KXdMgGS.jpg', 'https://i.imgur.com/B3laqtU.jpg']
   let backgroundColors = ['background-black', 'background-white']
   let textColors = ['text-black', 'text-white']
@@ -171,20 +163,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function changeTitle() {
     const title = document.getElementById('landing-title')
-    title.classList.add('fade-in')
     setInterval(() => {
       changingText.forEach((text, i) => {
         setTimeout(() => {
-          title.classList.remove('fade-out')
-          title.classList.add('fade-in')
           title.innerHTML = text
-          setTimeout(() => {
-            title.classList.remove('fade-in')
-            title.classList.add('fade-out')
-          }, 1000)
-        }, i * 3000)
+        }, i * 2500)
       })
-    }, 9000)
+    }, changingText.length * 2500)
   }
 
   function getDayTime(idName, content) {
@@ -222,21 +207,17 @@ document.addEventListener('DOMContentLoaded', () => {
     textColors = textColors.reverse()
 
     const whiteBackgrounds = ['landing-name']
-    const blackBackgrounds = ['bd', ...blackBackgroundsArray]
+    const blackBackgrounds = ['bd','project-content','profile-wrapper','devicons-container','parallax-layer', ...blackBackgroundsArray]
     const whiteTextIds = ['landing-title', 'text-wh-0', 'text-wh-1', 'text-wh-2', 'text-wh-3', 'contacts-wrapper', 'footer', 'down-arrow', ...whiteTextArray]
     const blackTextIds = ['landing-name']
 
-    blackBackgrounds.forEach(element => document.getElementById(element).classList.add(backgroundColors[0]))
-    blackBackgrounds.forEach(element => document.getElementById(element).classList.remove(backgroundColors[1]))
+    blackBackgrounds.forEach(element => document.getElementById(element).classList.replace(backgroundColors[1], backgroundColors[0]))
 
-    whiteBackgrounds.forEach(element => document.getElementById(element).classList.add(backgroundColors[1]))
-    whiteBackgrounds.forEach(element => document.getElementById(element).classList.remove(backgroundColors[0]))
+    whiteBackgrounds.forEach(element => document.getElementById(element).classList.replace(backgroundColors[0], backgroundColors[1]))
 
-    whiteTextIds.forEach(element => document.getElementById(element).classList.add(textColors[1]))
-    whiteTextIds.forEach(element => document.getElementById(element).classList.remove(textColors[0]))
+    whiteTextIds.forEach(element => document.getElementById(element).classList.replace(textColors[0], textColors[1]))
 
-    blackTextIds.forEach(element => document.getElementById(element).classList.add(textColors[0]))
-    blackTextIds.forEach(element => document.getElementById(element).classList.remove(textColors[1]))
+    blackTextIds.forEach(element => document.getElementById(element).classList.replace(textColors[1], textColors[0]))
   }
 
   function displayIcons() {
@@ -342,7 +323,12 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  const toggleHiddenChild = (e) => e.target.lastChild.classList.toggle('hidden')
+  const toggleHiddenChild = (e) => {
+    // e.target.style.perspective = '100px'
+    e.target.lastChild.classList.toggle('hidden') 
+    // e.target.firstChild.style.transform = 'translate3d(0, 2vmin, 5vmin)'
+    // console.log(e.target)
+  }
 
   // CONTACTS SECTION
 
