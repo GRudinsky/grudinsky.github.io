@@ -1,76 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Giedrius Rudzianskas | Web Dev</title>
-  <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada:700|Montserrat:400,700|Roboto+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@master/devicon.min.css">
+    <link
+    href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada:700|Montserrat:400,600,700|Roboto+Mono&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
   <script src="https://kit.fontawesome.com/9b413e5fa8.js" crossorigin="anonymous"></script>
   <script src="scripts/app.js"></script>
 </head>
+
 <body id="bd" class="background-black with-color-transition">
-  <header>
-    <!-- <div class="mode-toggle--container background-colored">
-      <i class="fas fa-sun mode-toggle"></i>
-    </div> -->
-  </header>
-    <section id="top" class="">
-      <div class="parallax">
-        <div class="parallax__layer parallax__layer--back">
-          <div class="flex-row centered">
-            <div id="landing-title" class="top-title-small text-white">WEB DEV</div>
-            <div id="landing-name" class="top-title background-white">GIEDRIUS</div>
+  <main id="top" class="parallax flex-center">
+    
+    <section id="landing" class="landing flex-column centered">
+        <p id="landing-title" class="top-title text-white">JAVASCRIPT ENGINEER</p>
+        <p id="landing-surname" class="bottom-title text-white">GIEDRIUS RUDZIANSKAS</p>
+    </section>
+
+    <section id="about" class="flex-center parallax-layer">
+      <div id="text-wh-0" class="section-title text-white">ABOUT</div>
+      <p id="text-wh-1" class="about-bio text-white font-mont">
+        Good <span id="time-of-day"></span>! Thank you for dropping by. I'm London-based JavaScript React engineer
+        with experience in working with the following technologies. Check out some of my personal previous projects below.
+      </p>
+      <div class="about-content font-mont text-white">
+        <div id="profile-wrapper" class="profile-wrapper">
         </div>
+        <div id="devicons-wrapper" class="devicons-container text-colored">
         </div>
-        <div class="parallax__layer parallax__layer--base">
-          <div class="flex-row centered">
-           <div id="landing-surname" class="top-title background-colored"> RUDZIANSKAS</div>
-          </div>
-        </div>
-      </div>
-      <div class="flex-row centered">
-      <a id="down-arrow" class="down-arrow text-white font-mont bounce" href="#about">▽</a>
       </div>
     </section>
-  <!-- ABOUT SECTION -->
 
-  <section id="about" class="section-wrapper">
-    <div id="text-wh-0" class="section-title text-white">ABOUT</div>
-      <p id="text-wh-1" class="about-bio text-white font-mont">
-        Good <span id="time-of-day"></span>! Thank you for dropping by. I'm a London-based junior full stack developer with experience in working with following technologies. Check out my projects section below.
-      </p>
-    <main class="about-content font-mont text-white">
-      <div id="profile-wrapper" class="profile-wrapper">
-        <!-- Content gets appended here from app.js -->
+    <div id="projects" class="section-wrapper flex-center parallax-layer">
+        <div id="text-wh-2" class="section-cover text-white">PROJECTS</div>
       </div>
-      <div id="devicons-wrapper" class="devicons-container text-colored">
-        <!-- Content gets appended here from app.js -->
-      </div>
-    </main>
-  </section>
 
-  <!-- PROJECTS SECTION -->
+    <section id="contact" class="section-wrapper contact-section parallax-layer">
+        <div id="text-wh-3" class="section-title text-white">CONTACT</div>
+        <div id="contacts-wrapper" class="contacts-container">
+        </div>
+        <footer id="footer" class="font-mont text-white">
+          <p>&copy grudinsky 2020<span id="text-cursor">|</span></p>
+        </footer>
+    </section>
+  </main>
 
-  <section id="works" class="section-wrapper">
-    <div id="text-wh-2" class="section-title text-white">PROJECTS</div>
-      <div id="projects-wrapper">
-      <!-- Content gets appended here from app.js -->
-    </div>
-  </section>
-
-    <!-- CONTACTS SECTION -->
-
-  <section id="contact" class="section-wrapper contact-section">
-    <div id="text-wh-3" class="section-title text-white">CONTACT</div>
-    <div id="contacts-wrapper" class="contacts-container">
-  <!-- Content gets appended here from app.js -->
-    </div>
-  </section>
-  <footer id="footer" class="font-mont text-white">
-  <p>&copy grudinsky 2019<span id="text-cursor">|</span></p>
-  </footer>
 </body>
 </html>
